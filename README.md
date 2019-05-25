@@ -1,4 +1,4 @@
-# hospitalStock
+# HospStock
 # **CSI477-2019-01 - Proposta de Trabalho Final**
 ## *Grupo: Natanael Emilio da Costa & Giovanna Badaró Alves*
 
