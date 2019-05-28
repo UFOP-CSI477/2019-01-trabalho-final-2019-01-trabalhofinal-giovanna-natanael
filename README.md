@@ -36,8 +36,10 @@ O objetivo deste documento é apresentar uma proposta para o trabalho a ser dese
 ### 4. Protótipo
 
  
-  * [Protótipo tela de inicial](/blob/master/assets/prototipo/menu.jpg)
-  * [Protótipo tela de estoque](https://www.google.com)
+  * [Protótipo tela inicial](https://imgur.com/8oUhSuP)
+  * [Protótipo tela de login](https://imgur.com/PW0F9rS)
+  * [Protótipo tela de registro](https://imgur.com/XWQe4mH)
+  * [Protótipo tabela de usuários](https://imgur.com/gnj8k6B)
 
 ### 5. Referências
 
