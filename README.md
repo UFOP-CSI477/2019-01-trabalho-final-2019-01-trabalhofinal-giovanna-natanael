@@ -25,7 +25,7 @@ O objetivo deste documento é apresentar uma proposta para o trabalho a ser dese
   * Gestão Financeira;
   * Alerta de estoque baixo; 
   * Filtro de busca;
-  * Gerar de inventário.
+  * Gerar relatório de inventário.
 
 <!-- Apresentar restri��es de funcionalidades e de escopo. -->
 ### 3. Restrições
@@ -36,10 +36,10 @@ O objetivo deste documento é apresentar uma proposta para o trabalho a ser dese
 ### 4. Protótipo
 
  
-  * [Protótipo tela inicial](https://imgur.com/8oUhSuP)
-  * [Protótipo tela de login](https://imgur.com/PW0F9rS)
-  * [Protótipo tela de registro](https://imgur.com/XWQe4mH)
-  * [Protótipo tabela de usuários](https://imgur.com/gnj8k6B)
+  * [Tela inicial](https://imgur.com/8oUhSuP)
+  * [Tela de login](https://imgur.com/PW0F9rS)
+  * [Tela de registro](https://imgur.com/XWQe4mH)
+  * [Tabela de usuários](https://imgur.com/gnj8k6B)
 
 ### 5. Referências
 
