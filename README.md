@@ -36,7 +36,7 @@ O objetivo deste documento é apresentar uma proposta para o trabalho a ser dese
 ### 4. Protótipo
 
  
-  * [Protótipo tela de inicial](assets/prototipo/Menu.jpg)
+  * [Protótipo tela de inicial](/blob/master/assets/prototipo/menu.jpg)
   * [Protótipo tela de estoque](https://www.google.com)
 
 ### 5. Referências
