@@ -7,21 +7,54 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <title>Menu</title>
-    <link rel="shortcut icon" href="assets/pictures/medicine.png"/>
+    <link rel="shortcut icon" href="assets/pictures/medicine.png" />
     <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/" type="text/css">
+    <link rel="stylesheet" href="assets/menuT.css" type="text/css">
 
 </head>
 
 <body>
-
-	<div class="w-100 p-3 pt-1">
-		<h1 class="display-3 text-center">Menu</h1>
-	</div>
-
-	<div class="w-100 p-3">
-		<a class="btn btn-primary bnt-lg" href="#" role="button">Link</a>
-	</div>
-
+        <div class="sidenav">
+                <div class="login-main-text text-center">
+                   <img class="img-sidenav" src="assets/pictures/medicineM.png">
+                   <h2 class="display-4">HospStock </h2>                  
+                   <p>Sistemas de gerenciamento de estoque hospitalar</p>                  
+                </div>
+                <div class="grupo-botao-sidenav ml-5 text-center">
+                   <div class="botao1">
+                        <button type="button" class="btn btn-outline-light">Acessar o Sistema</button>
+                   </div>
+                   <div class="botao2">
+                        <button type="button" class="btn btn-outline-light mt-4"><a href="edit-user.html">Gerenciamento de Usuário</a></button>
+                   </div>
+                   <div class="botao3">
+                        <button type="button" class="btn btn-outline-light mt-4">Registrar usuário</button>
+                   </div>   
+                   <div class="botao3">
+                        <button type="button" class="btn btn-outline-light mt-4">Sair</button>
+                   </div>                   
+            
+                </div>
+             </div>
+             <div class="main">
+                <div class="col-md-6 col-sm-12">
+                   <div class="login-form">
+                      <h2 class="display-5">Acessar o sistema</h2>
+                      <form>
+                         <div class="form-group mt-3">
+                            <label>User Name</label>
+                            <input type="text" class="form-control" placeholder="User Name">
+                         </div>
+                         <div class="form-group">
+                            <label>Password</label>
+                            <input type="password" class="form-control" placeholder="Password">
+                         </div>
+                         <button type="submit" class="btn btn-black">Login</button>
+                         <button type="submit" class="btn btn-secondary">Register</button>
+                      </form>
+                   </div>
+                   
+                </div>
+             </div>
 </body>
 </html>
