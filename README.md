@@ -40,6 +40,11 @@ O objetivo deste documento é apresentar uma proposta para o trabalho a ser dese
   * [Tela de login](https://imgur.com/PW0F9rS)
   * [Tela de registro](https://imgur.com/XWQe4mH)
   * [Tabela de usuários](https://imgur.com/gnj8k6B)
+  * [Tela de relatório](https://i.imgur.com/mOduRla.jpg)
+  * [Tela de cadastro](https://i.imgur.com/R7ZCAn8.jpg)
+  * [Tela de avisos](https://i.imgur.com/4L2Q77C.jpg)
+  * [Tela de estoque](https://i.imgur.com/zUwjNiW.jpg)
+  * [Tela de registro de transação](https://i.imgur.com/fnWe1HY.jpg)
 
 ### 5. Referências
 
