@@ -30,8 +30,7 @@ if(isset($_POST['enviar'])){
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
         <title>Gerenciar Usuário</title>
-        <link rel="shortcut icon" href="assets/pictures/medicine.png" />          
-        <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">    
+        <link rel="shortcut icon" href="assets/pictures/medicine.png" /> 
         <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
             name='viewport' />
         <!--     Fonts and icons     -->

@@ -1,10 +1,37 @@
+<?php
+
+require_once 'assets/php/database.php';
+require_once 'assets/php/funcionario.php';
+require_once 'assets/php/equipamento.php';
+require_once 'assets/php/entrada.php';
+    
+   
+$entrada = new Entrada();
+if(isset($_POST['enviar'])){
+    
+	$entrada->setLote($_POST['lote']);
+	$entrada->setData($_POST['data']);
+	$entrada->setHorario($_POST['horario']);
+    $entrada->setObs($_POST['obs']);
+    $entrada->setFuncionario_idfuncionario($_POST['registroF']);
+    $entrada->setEquipamento_idequipamento($_POST['idequipamento']);
+
+	
+	if($entrada->insert() == 1){
+		$result = "Equipamento inserido";
+	}else{
+		$error = "Erro ao inserir";
+	}
+	
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
     <head>
         <meta charset="utf-8" />
-        <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
-        <link rel="icon" type="image/png" href="assets/img/favicon.ico">
+        <link rel="shortcut icon" href="assets/pictures/medicine.png" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
         <title>Registro de entrada</title>
         <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
@@ -78,33 +105,34 @@
                                 <h4 class="card-title">Registrar entrada de equipamentos</h4>
                             </div>
                             <div class="card-body">
-                                <form>
+                                <form method="POST" action="registro-entrada.php">
                                     <div class="row">
                                         <div class="col-md-6 pr-1">
                                             <div class="form-group">
                                                 <label>Lote</label>
-                                                <input type="text" class="form-control"
+                                                <input type="text" name="lote" class="form-control"
                                                     placeholder="Numeração do lote">
                                             </div>
                                         </div>
                                         <div class="col-md-6 px-1">
                                             <div class="form-group">
-                                                <label>Registro do funcionário</label>
-                                                <input type="text" class="form-control" placeholder="Registro do funcionário responsável">
+                                                <label>Registro do funcionário que retirou</label>
+                                                <input type="text" name="registroF" class="form-control" placeholder="Registro do funcionário responsável">
                                             </div>
                                         </div>                                        
                                     </div>
                                     <div class="row">
-                                        <div class="col-md-6 pr-1">
+                                        
+                                        <div class="col-md-3 pl-1">
                                             <div class="form-group">
-                                                <label>Registro do equipamento</label>
-                                                <input type="text" class="form-control" placeholder="Resgitro do equipamento recebido">                                                   
+                                                <label>Quantidade</label>
+                                                <input type="number" name="quantidade" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-md-3 pl-1">
                                             <div class="form-group">
-                                                <label>Quantidade</label>
-                                                <input type="number" class="form-control">
+                                                <label>ID do quipamento</label>
+                                                <input type="number" name="idequipamento" class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -112,13 +140,13 @@
                                         <div class="col-md-3 pr-1">
                                             <div class="form-group">
                                                 <label>Data</label>
-                                                <input type="date" class="form-control">
+                                                <input type="date" name="data" class="form-control">
                                             </div>
                                         </div>
                                         <div class="col-md-3 pl-1">
                                                 <div class="form-group">
                                                     <label>Horário</label>
-                                                    <input type="time" class="form-control">
+                                                    <input type="time" name="horario" class="form-control">
                                                 </div>
                                             </div>
                                     </div>
@@ -127,14 +155,13 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Observações</label>
-                                                <textarea rows="4" cols="80" class="form-control"
+                                                <textarea rows="4" cols="80" name="obs" class="form-control"
                                                     placeholder="Digite algum problema durante o recebimento, ou alguma observação a ser feita."
                                                     ></textarea>
                                             </div>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-info btn-fill pull-right">Update
-                                        Profile</button>
+                                    <button type="submit" value="enviar" name="enviar" class="btn btn-info btn-fill pull-right">Salvar</button>
                                     <div class="clearfix"></div>
                                 </form>
                             </div>
