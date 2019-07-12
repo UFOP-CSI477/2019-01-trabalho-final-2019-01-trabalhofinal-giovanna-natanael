@@ -12,6 +12,7 @@ class Saida {
    private $obs;
    private $funcionario_idfuncionario;
    private $equipamento_idequipamento;
+   private $setor;
 
    public function __construct() {        
         $database = new Database();
@@ -42,9 +43,12 @@ class Saida {
     function setEquipamento_idequipamento($value) {
         $this->equipamento_idequipamento = $value;
     }
+    function setSetor($value){
+        $this->setor = $value;
+    }
     public function insert(){
         try{
-            $stmt = $this->conn->prepare("INSERT INTO `saida`(`idsaida`,`quantidade`, `data`, `horario`, `obs`,`funcionario_idfuncionario`, `equipamento_idequipamento` ) VALUES(:idsaida, :quantidade, :data, :horario, :obs, :funcionario_idfuncionario, :equipamento_idequipamento)");
+            $stmt = $this->conn->prepare("INSERT INTO `saida`(`idsaida`,`quantidade`, `data`, `horario`, `obs`,`funcionario_idfuncionario`, `equipamento_idequipamento`, `setor` ) VALUES(:idsaida, :quantidade, :data, :horario, :obs, :funcionario_idfuncionario, :equipamento_idequipamento, :setor)");
             $stmt->bindParam(":idsaida", $this->idsaida);
             $stmt->bindParam(":quantidade", $this->quantidade);
             $stmt->bindParam(":data", $this->data);
@@ -52,6 +56,7 @@ class Saida {
             $stmt->bindParam(":obs", $this->obs);
             $stmt->bindParam(":funcionario_idfuncionario", $this->funcionario_idfuncionario);
             $stmt->bindParam(":equipamento_idequipamento",$this->equipamento_idequipamento);
+            $stmt->bindParam(":setor", $this->setor);
             
             $stmt->execute();
             return 1;

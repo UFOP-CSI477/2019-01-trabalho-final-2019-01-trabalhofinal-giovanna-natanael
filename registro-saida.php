@@ -1,3 +1,32 @@
+<?php
+
+require_once 'assets/php/database.php';
+require_once 'assets/php/funcionario.php';
+require_once 'assets/php/equipamento.php';
+require_once 'assets/php/saida.php';
+    
+   
+$saida = new Saida();
+if(isset($_POST['enviar'])){
+    
+	$saida->setQuantidade($_POST['quantidade']);
+	$saida->setData($_POST['data']);
+	$saida->setHorario($_POST['horario']);
+    $saida->setObs($_POST['obs']);
+    $saida->setFuncionario_idfuncionario($_POST['registroF']);
+    $saida->setEquipamento_idequipamento($_POST['idequipamento']);
+    $saida->setSetor($_POST['setor']);
+
+	
+	if($saida->insert() == 1){
+		$result = "Equipamento inserido";
+	}else{
+		$error = "Erro ao inserir";
+	}
+	
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +34,7 @@
         <meta charset="utf-8" />
         <link rel="shortcut icon" href="assets/pictures/medicine.png" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-        <title>Registro de entrada</title>
+        <title>Registro de Saida</title>
         <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
             name='viewport' />
         <!--     Fonts and icons     -->
@@ -77,47 +106,36 @@
                                 <h4 class="card-title">Registrar saída de equipamentos</h4>
                             </div>
                             <div class="card-body">
-                                <form>
+                                <form method="POST" action="registro-saida.php">
                                     <div class="row">
                                         <div class="col-md-6 pr-1">
                                             <div class="form-group">
-                                                <label>Registro Funcionário</label>
-                                                <input type="text" class="form-control"
-                                                    placeholder="Registro do funcionário que liberou o(s) equipamento(s)">
+                                                <label>ID Funcionário</label>
+                                                <input type="text" class="form-control" name="registroF"
+                                                    placeholder="Identificação do funcionário que liberou o(s) equipamento(s)">
                                             </div>
                                         </div>
-                                        <div class="col-md-6 px-1">
-                                            <div class="form-group">
-                                                <label>Registro do funcionário</label>
-                                                <input type="text" class="form-control"
-                                                    placeholder="Registro do funcionário que retirou">
-                                            </div>
-                                        </div>
+                                        
                                     </div>
                                     <div class="row">
                                         <div class="col-md-4 pr-1">
                                             <div class="form-group">
                                                 <label>Registro do equipamento</label>
-                                                <input type="text" class="form-control"
+                                                <input type="text" class="form-control" name="idequipamento"
                                                     placeholder="Resgitro do equipamento">
                                             </div>
                                         </div>
-                                        <div class="col-md-4 pr-1 my-1 pt-4">
-                                            <div class="form-group col-auto">
-                                                <label class="mr-sm-2 sr-only"
-                                                    for="inlineFormCustomSelect">Preferência</label>
-                                                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                                                    <option selected>Setor</option>
-                                                    <option value="1">Pediatria</option>
-                                                    <option value="2">UTI</option>
-                                                    <option value="3">Emergência</option>
-                                                </select>
+                                        <div class="col-md-4 pr-1">
+                                            <div class="form-group">
+                                                <label>Setor</label>
+                                                <input type="text" class="form-control" name="setor"
+                                                    placeholder="Resgitro do equipamento">
                                             </div>
                                         </div>
                                         <div class="col-md-2 pl-1 ">
                                             <div class="form-group">
                                                 <label>Quantidade</label>
-                                                <input type="number" class="form-control">
+                                                <input type="number" class="form-control" name="quantidade">
                                             </div>
                                         </div>
                                     </div>
@@ -125,13 +143,13 @@
                                         <div class="col-md-3 pr-1">
                                             <div class="form-group">
                                                 <label>Data</label>
-                                                <input type="date" class="form-control">
+                                                <input type="date" class="form-control" name="data">
                                             </div>
                                         </div>
                                         <div class="col-md-3 pl-1">
                                             <div class="form-group">
                                                 <label>Horário</label>
-                                                <input type="time" class="form-control">
+                                                <input type="time" class="form-control" name="horario">
                                             </div>
                                         </div>
                                     </div>
@@ -140,12 +158,12 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Observações</label>
-                                                <textarea rows="4" cols="80" class="form-control"
+                                                <textarea rows="4" cols="80" class="form-control" name="obs"
                                                     placeholder="Digite algum problema durante a retirada de esquipamentos, ou alguma observação a ser feita."></textarea>
                                             </div>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-info btn-fill pull-right">Salvar</button>
+                                    <button type="submit" value="enviar" name="enviar" class="btn btn-info btn-fill pull-right">Salvar</button>
                                     <div class="clearfix"></div>
                                 </form>
                             </div>
