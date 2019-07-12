@@ -85,7 +85,7 @@ class Funcionario{
 		return $stmt;
 	}
 	public function locate(){
-        $stmt = $this->conn->prepare("SELECT * FROM `funcionario` WHERE `registro` = :email");
+        $stmt = $this->conn->prepare("SELECT * FROM `funcionario` WHERE `registro` = :registro");
         $stmt->bindParam(":registro", $this->registro);
         $stmt->execute();
         $row = $stmt->fetch(PDO::FETCH_OBJ);
