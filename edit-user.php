@@ -13,7 +13,7 @@ if(isset($_POST['enviar'])){
 	$funcionario->setSenha($_POST['senha']);
 
 	
-	if($equipamento->insert() == 1){
+	if($funcionario->insert() == 1){
 		$result = "Equipamento inserido";
 	}else{
 		$error = "Erro ao inserir";
