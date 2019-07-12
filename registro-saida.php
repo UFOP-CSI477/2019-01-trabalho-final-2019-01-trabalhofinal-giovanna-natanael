@@ -27,37 +27,37 @@
                     </div>
                     <ul class="nav">
                         <li>
-                            <a class="nav-link" href="dashboard2.html">
+                            <a class="nav-link" href="dashboard2.php">
                                 <p>Dashboard</p>
                             </a>
                         </li>
-                        <li class="nav-link active">
-                            <a class="nav-link" href="registro-entrada.html">
+                        <li>
+                            <a class="nav-link" href="registro-entrada.php">
                                 <p>Registro de entrada</p>
                             </a>
                         </li>
-                        <li >
-                                <a class="nav-link" href="registro-saida.html">
-                                    <p>Registro de saída</p>
-                                </a>
-                            </li>
+                        <li class="nav-link active">
+                            <a class="nav-link" href="registro-saida.php">
+                                <p>Registro de saída</p>
+                            </a>
+                        </li>
                         <li>
-                            <a class="nav-link" href="visualiza-estoque.html">
+                            <a class="nav-link" href="visualiza-estoque.php">
                                 <p>Visualizar Estoque</p>
                             </a>
                         </li>
                         <li>
-                            <a class="nav-link" href="cadastra-equipamento.html">
+                            <a class="nav-link" href="cadastra-equipamento.php">
                                 <p>Cadastrar novo equipamento</p>
                             </a>
                         </li>
                         <li>
-                            <a class="nav-link" href="relatorio-estoque.html">
+                            <a class="nav-link" href="relatorio-estoque.php">
                                 <p>Relatório de estoque</p>
                             </a>
                         </li>
                         <li>
-                            <a class="nav-link" href="edit-user.html">
+                            <a class="nav-link" href="edit-user.php">
                                 <p>Gerenciar usuários</p>
                             </a>
                         </li>
@@ -75,33 +75,47 @@
                     <div class="col-md-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Registrar entrada de equipamentos</h4>
+                                <h4 class="card-title">Registrar saída de equipamentos</h4>
                             </div>
                             <div class="card-body">
                                 <form>
                                     <div class="row">
                                         <div class="col-md-6 pr-1">
                                             <div class="form-group">
-                                                <label>Lote</label>
+                                                <label>Registro Funcionário</label>
                                                 <input type="text" class="form-control"
-                                                    placeholder="Numeração do lote">
+                                                    placeholder="Registro do funcionário que liberou o(s) equipamento(s)">
                                             </div>
                                         </div>
                                         <div class="col-md-6 px-1">
                                             <div class="form-group">
                                                 <label>Registro do funcionário</label>
-                                                <input type="text" class="form-control" placeholder="Registro do funcionário responsável">
-                                            </div>
-                                        </div>                                        
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-6 pr-1">
-                                            <div class="form-group">
-                                                <label>Registro do equipamento</label>
-                                                <input type="text" class="form-control" placeholder="Resgitro do equipamento recebido">                                                   
+                                                <input type="text" class="form-control"
+                                                    placeholder="Registro do funcionário que retirou">
                                             </div>
                                         </div>
-                                        <div class="col-md-3 pl-1">
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-4 pr-1">
+                                            <div class="form-group">
+                                                <label>Registro do equipamento</label>
+                                                <input type="text" class="form-control"
+                                                    placeholder="Resgitro do equipamento">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4 pr-1 my-1 pt-4">
+                                            <div class="form-group col-auto">
+                                                <label class="mr-sm-2 sr-only"
+                                                    for="inlineFormCustomSelect">Preferência</label>
+                                                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                                                    <option selected>Setor</option>
+                                                    <option value="1">Pediatria</option>
+                                                    <option value="2">UTI</option>
+                                                    <option value="3">Emergência</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-2 pl-1 ">
                                             <div class="form-group">
                                                 <label>Quantidade</label>
                                                 <input type="number" class="form-control">
@@ -116,25 +130,23 @@
                                             </div>
                                         </div>
                                         <div class="col-md-3 pl-1">
-                                                <div class="form-group">
-                                                    <label>Horário</label>
-                                                    <input type="time" class="form-control">
-                                                </div>
+                                            <div class="form-group">
+                                                <label>Horário</label>
+                                                <input type="time" class="form-control">
                                             </div>
+                                        </div>
                                     </div>
-                                   
+
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label>Observações</label>
                                                 <textarea rows="4" cols="80" class="form-control"
-                                                    placeholder="Digite algum problema durante o recebimento, ou alguma observação a ser feita."
-                                                    ></textarea>
+                                                    placeholder="Digite algum problema durante a retirada de esquipamentos, ou alguma observação a ser feita."></textarea>
                                             </div>
                                         </div>
                                     </div>
-                                    <button type="submit" class="btn btn-info btn-fill pull-right">Update
-                                        Profile</button>
+                                    <button type="submit" class="btn btn-info btn-fill pull-right">Salvar</button>
                                     <div class="clearfix"></div>
                                 </form>
                             </div>

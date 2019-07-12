@@ -34,37 +34,37 @@
                     </div>
                     <ul class="nav">
                         <li class="nav-link active">
-                            <a class="nav-link" href="dashboard2.html">
+                            <a class="nav-link" href="dashboard2.php">
                                 <p>Dashboard</p>
                             </a>
                         </li>
                         <li>
-                            <a class="nav-link" href="registro-entrada.html">
+                            <a class="nav-link" href="registro-entrada.php">
                                 <p>Registro de entrada</p>
                             </a>
                         </li>
                         <li>
-                            <a class="nav-link" href="registro-saida.html">
+                            <a class="nav-link" href="registro-saida.php">
                                 <p>Registro de saída</p>
                             </a>
                         </li>
                         <li>
-                            <a class="nav-link" href="visualiza-estoque.html">
+                            <a class="nav-link" href="visualiza-estoque.php">
                                 <p>Visualizar Estoque</p>
                             </a>
                         </li>
                         <li>
-                            <a class="nav-link" href="cadastra-equipamento.html">
+                            <a class="nav-link" href="cadastra-equipamento.php">
                                 <p>Cadastrar novo equipamento</p>
                             </a>
                         </li>
                         <li>
-                            <a class="nav-link" href="relatorio-estoque.html">
+                            <a class="nav-link" href="relatorio-estoque.php">
                                 <p>Relatório de estoque</p>
                             </a>
                         </li>
                         <li>
-                            <a class="nav-link" href="./maps.html">
+                            <a class="nav-link" href="./maps.php">
                                 <p>Gerenciar usuários</p>
                             </a>
                         </li>

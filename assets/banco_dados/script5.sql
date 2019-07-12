@@ -18,79 +18,85 @@ USE `mydb` ;
 -- Table `mydb`.`equipamento`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`equipamento` (
-  `idequipamento` INT NOT NULL,
-  `nome` VARCHAR(45) NULL,
-  `registro` VARCHAR(45) NULL,
-  `fornecedor` VARCHAR(45) NULL,
-  `preco` VARCHAR(45) NULL,
+  `idequipamento` INT(11) NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(45) NULL DEFAULT NULL,
+  `registro` VARCHAR(45) NULL DEFAULT NULL,
+  `fornecedor` VARCHAR(45) NULL DEFAULT NULL,
+  `preco` VARCHAR(45) NULL DEFAULT NULL,
   PRIMARY KEY (`idequipamento`))
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
 -- Table `mydb`.`funcionario`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`funcionario` (
-  `idfuncionario` INT NOT NULL,
-  `nome` VARCHAR(45) NULL,
-  `registro` VARCHAR(45) NULL,
-  `setor` VARCHAR(45) NULL,
+  `idfuncionario` INT(11) NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(45) NULL DEFAULT NULL,
+  `registro` VARCHAR(45) NULL DEFAULT NULL,
+  `setor` VARCHAR(45) NULL DEFAULT NULL,
+  `senha` VARCHAR(25) NULL DEFAULT NULL,
   PRIMARY KEY (`idfuncionario`))
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
 -- Table `mydb`.`entrada`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`entrada` (
-  `identrada` INT NOT NULL,
-  `lote` VARCHAR(45) NULL,
-  `data` DATE NULL,
-  `horario` TIME NULL,
-  `obs` VARCHAR(45) NULL,
-  `funcionario_idfuncionario` INT NOT NULL,
-  `equipamento_idequipamento` INT NOT NULL,
+  `identrada` INT(11) NOT NULL AUTO_INCREMENT,
+  `lote` VARCHAR(45) NULL DEFAULT NULL,
+  `data` DATE NULL DEFAULT NULL,
+  `horario` TIME NULL DEFAULT NULL,
+  `obs` VARCHAR(45) NULL DEFAULT NULL,
+  `funcionario_idfuncionario` INT(11) NOT NULL,
+  `equipamento_idequipamento` INT(11) NOT NULL,
   PRIMARY KEY (`identrada`, `funcionario_idfuncionario`, `equipamento_idequipamento`),
   INDEX `fk_entrada_funcionario_idx` (`funcionario_idfuncionario` ASC),
   INDEX `fk_entrada_equipamento1_idx` (`equipamento_idequipamento` ASC),
-  CONSTRAINT `fk_entrada_funcionario`
-    FOREIGN KEY (`funcionario_idfuncionario`)
-    REFERENCES `mydb`.`funcionario` (`idfuncionario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   CONSTRAINT `fk_entrada_equipamento1`
     FOREIGN KEY (`equipamento_idequipamento`)
     REFERENCES `mydb`.`equipamento` (`idequipamento`)
     ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_entrada_funcionario`
+    FOREIGN KEY (`funcionario_idfuncionario`)
+    REFERENCES `mydb`.`funcionario` (`idfuncionario`)
+    ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
 
 
 -- -----------------------------------------------------
 -- Table `mydb`.`saida`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `mydb`.`saida` (
-  `idsaida` INT NOT NULL,
-  `quantidade` INT NULL,
-  `data` DATE NULL,
-  `horario` TIME NULL,
-  `obs` VARCHAR(45) NULL,
-  `funcionario_idfuncionario` INT NOT NULL,
-  `equipamento_idequipamento` INT NOT NULL,
+  `idsaida` INT(11) NOT NULL AUTO_INCREMENT,
+  `quantidade` INT(11) NULL DEFAULT NULL,
+  `data` DATE NULL DEFAULT NULL,
+  `horario` TIME NULL DEFAULT NULL,
+  `obs` VARCHAR(45) NULL DEFAULT NULL,
+  `funcionario_idfuncionario` INT(11) NOT NULL,
+  `equipamento_idequipamento` INT(11) NOT NULL,
+  `setor` VARCHAR(45) NULL,
   PRIMARY KEY (`idsaida`, `funcionario_idfuncionario`, `equipamento_idequipamento`),
   INDEX `fk_saida_funcionario1_idx` (`funcionario_idfuncionario` ASC),
   INDEX `fk_saida_equipamento1_idx` (`equipamento_idequipamento` ASC),
-  CONSTRAINT `fk_saida_funcionario1`
-    FOREIGN KEY (`funcionario_idfuncionario`)
-    REFERENCES `mydb`.`funcionario` (`idfuncionario`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
   CONSTRAINT `fk_saida_equipamento1`
     FOREIGN KEY (`equipamento_idequipamento`)
     REFERENCES `mydb`.`equipamento` (`idequipamento`)
     ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_saida_funcionario1`
+    FOREIGN KEY (`funcionario_idfuncionario`)
+    REFERENCES `mydb`.`funcionario` (`idfuncionario`)
+    ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+ENGINE = InnoDB
+DEFAULT CHARACTER SET = utf8;
 
 
 SET SQL_MODE=@OLD_SQL_MODE;

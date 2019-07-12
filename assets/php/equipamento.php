@@ -34,8 +34,8 @@ class Equipamento{
 			$stmt = $this->conn->prepare("INSERT INTO `equipamento`(`nome`, `registro`, `fornecedor`, `preco`) VALUES (:nome, :registro, :fornecedor, :preco)");
 			$stmt->bindParam(":nome", $this->nome);
 			$stmt->bindParam(":registro", $this->registro);
-            $stmt->bindParam(":fornecedor", $this->setor);
-            $stmt->bindParam(":preco", $this->senha);
+            $stmt->bindParam(":fornecedor", $this->fornecedor);
+            $stmt->bindParam(":preco", $this->preco);
 	
 			
 			$stmt->execute();
@@ -50,8 +50,8 @@ class Equipamento{
 			$stmt = $this->conn->prepare("UPDATE `funcionario` SET `nome` = :nome, `registro` = :registro, `fornecedor` = :fornecedor, `preco`= :preco WHERE `idequipamento` = :idequipamento");
 			$stmt->bindParam(":nome", $this->nome);
 			$stmt->bindParam(":registro", $this->registro);
-            $stmt->bindParam(":fornecedor", $this->setor);
-            $stmt->bindParam(":preco", $this->senha);
+            $stmt->bindParam(":fornecedor", $this->fornecedor);
+            $stmt->bindParam(":preco", $this->preco);
 			
 			$stmt->execute();
 			return 1;

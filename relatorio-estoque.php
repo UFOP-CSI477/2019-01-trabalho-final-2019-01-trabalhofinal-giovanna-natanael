@@ -27,37 +27,37 @@
                     </div>
                     <ul class="nav">
                         <li>
-                            <a class="nav-link" href="dashboard2.html">
+                            <a class="nav-link" href="dashboard2.php">
                                 <p>Dashboard</p>
                             </a>
                         </li>
                         <li>
-                            <a class="nav-link" href="registro-entrada.html">
+                            <a class="nav-link" href="registro-entrada.php">
                                 <p>Registro de entrada</p>
                             </a>
                         </li>
                         <li>
-                            <a class="nav-link" href="registro-saida.html">
+                            <a class="nav-link" href="registro-saida.php">
                                 <p>Registro de saída</p>
                             </a>
                         </li>
                         <li>
-                            <a class="nav-link" href="visualiza-estoque.html">
+                            <a class="nav-link" href="visualiza-estoque.php">
                                 <p>Visualizar Estoque</p>
                             </a>
                         </li>
-                        <li class="nav-link active">
-                            <a class="nav-link" href="cadastra-equipamento.html">
+                        <li>
+                            <a class="nav-link" href="cadastra-equipamento.php">
                                 <p>Cadastrar novo equipamento</p>
                             </a>
                         </li>
-                        <li>
-                            <a class="nav-link" href="relatorio-estoque.html">
+                        <li class="nav-link active">
+                            <a class="nav-link" href="relatorio-estoque.php">
                                 <p>Relatório de estoque</p>
                             </a>
                         </li>
                         <li>
-                            <a class="nav-link" href="edit-user.html">
+                            <a class="nav-link" href="edit-user.php">
                                 <p>Gerenciar usuários</p>
                             </a>
                         </li>
@@ -71,52 +71,8 @@
                 </div>
             </div>
             <div class="main-panel">
-                <div class="content">
-                    <div class="col-md-6">
-                        <div class="card ml-5 mt-5">
-                            <div class="card-header">
-                                <h4 class="card-title">Cadastro de equipamentos</h4>
-                            </div>
-                            <div class="card-body">
-                                <form>
-                                    <div class="row">
-                                        <div class="col-md-12 pr-3">
-                                            <div class="form-group">
-                                                <label>Nome</label>
-                                                <input type="text" class="form-control"
-                                                    placeholder="Digite o nome do equipamento">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 pl-3 pr-3">
-                                            <div class="form-group">
-                                                <label>Registro</label>
-                                                <input type="text" class="form-control"
-                                                    placeholder="Digite um registro para o equipamento">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 pl-3 pr-3">
-                                            <div class="form-group">
-                                                <label>Fornecedor</label>
-                                                <input type="text" class="form-control"
-                                                    placeholder="Digite o nome do fornecedor">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12 pl-3 pr-3">
-                                            <div class="form-group">
-                                                <label>Preço unitário</label>
-                                                <input type="text" class="form-control"
-                                                    placeholder="Insira o valor do produto">
-                                            </div>
-                                        </div>
-
-                                    </div>
-
-                                    <button type="submit" class="btn btn-info btn-fill pull-right">Salvar</button>
-                                    <div class="clearfix"></div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
+                <div class="text-center mt-5">
+                    <button type="button" class="btn btn-primary ">Gerar relatório em PDF</button>
                 </div>
             </div>
             <footer class="footer">

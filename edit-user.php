@@ -1,12 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
 
+require_once 'assets/php/database.php';
+require_once 'assets/php/funcionario.php';
+    
+   
+$funcionario = new Funcionario();
+if(isset($_POST['enviar'])){
+    
+	$funcionario->setNome($_POST['nome']);
+	$funcionario->setRegistro($_POST['registro']);
+	$funcionario->setSetor($_POST['setor']);
+	$funcionario->setSenha($_POST['senha']);
+
+	
+	if($equipamento->insert() == 1){
+		$result = "Equipamento inserido";
+	}else{
+		$error = "Erro ao inserir";
+	}
+	
+}
+
+?>
+
+<!DOCTYPE html>
+<html>
     <head>
-        <meta charset="utf-8" />
-        <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
-        <link rel="icon" type="image/png" href="assets/img/favicon.ico">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-        <title>Registro de entrada</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <title>Gerenciar Usuário</title>
+        <link rel="shortcut icon" href="assets/pictures/medicine.png" />          
+        <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">    
         <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no'
             name='viewport' />
         <!--     Fonts and icons     -->
@@ -27,42 +52,42 @@
                     </div>
                     <ul class="nav">
                         <li>
-                            <a class="nav-link" href="dashboard2.html">
+                            <a class="nav-link" href="dashboard2.php">
                                 <p>Dashboard</p>
                             </a>
                         </li>
                         <li>
-                            <a class="nav-link" href="registro-entrada.html">
+                            <a class="nav-link" href="registro-entrada.php">
                                 <p>Registro de entrada</p>
                             </a>
                         </li>
-                        <li class="nav-link active">
-                            <a class="nav-link" href="registro-saida.html">
+                        <li>
+                            <a class="nav-link" href="registro-saida.php">
                                 <p>Registro de saída</p>
                             </a>
                         </li>
                         <li>
-                            <a class="nav-link" href="visualiza-estoque.html">
+                            <a class="nav-link" href="visualiza-estoque.php">
                                 <p>Visualizar Estoque</p>
                             </a>
                         </li>
                         <li>
-                            <a class="nav-link" href="cadastra-equipamento.html">
+                            <a class="nav-link" href="cadastra-equipamento.php">
                                 <p>Cadastrar novo equipamento</p>
                             </a>
                         </li>
-                        <li>
-                            <a class="nav-link" href="relatorio-estoque.html">
+                        <li >
+                            <a class="nav-link " href="relatorio-estoque.php">
                                 <p>Relatório de estoque</p>
                             </a>
                         </li>
-                        <li>
-                            <a class="nav-link" href="edit-user.html">
+                        <li class="nav-link active">
+                            <a class="nav-link" href="edit-user.php">
                                 <p>Gerenciar usuários</p>
                             </a>
                         </li>
                         <li class="nav-item active active-pro">
-                            <a class="nav-link active text-center" href="upgrade.html">
+                            <a class="nav-link active text-center" href="menu.php">
                                 <i class="nc-icon"></i>
                                 <p>Sair</p>
                             </a>
@@ -72,81 +97,45 @@
             </div>
             <div class="main-panel">
                 <div class="content">
-                    <div class="col-md-12">
-                        <div class="card">
+                    <div class="col-md-6">
+                        <div class="card ml-5 mt-5">
                             <div class="card-header">
-                                <h4 class="card-title">Registrar saída de equipamentos</h4>
+                                <h4 class="card-title">Cadastro de usuário</h4>
                             </div>
                             <div class="card-body">
-                                <form>
+                                <form method="POST" action="edit-user.php">
                                     <div class="row">
-                                        <div class="col-md-6 pr-1">
+                                        <div class="col-md-12 pr-3">
                                             <div class="form-group">
-                                                <label>Registro Funcionário</label>
-                                                <input type="text" class="form-control"
-                                                    placeholder="Registro do funcionário que liberou o(s) equipamento(s)">
+                                                <label>Nome</label>
+                                                <input type="text" name="nome" class="form-control"
+                                                    placeholder="Digite o nome do usuário">
                                             </div>
                                         </div>
-                                        <div class="col-md-6 px-1">
+                                        <div class="col-md-12 pl-3 pr-3">
                                             <div class="form-group">
-                                                <label>Registro do funcionário</label>
-                                                <input type="text" class="form-control"
-                                                    placeholder="Registro do funcionário que retirou">
+                                                <label>Registro</label>
+                                                <input type="text" name="registro" class="form-control"
+                                                    placeholder="Digite o registro do funcionario">
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-4 pr-1">
+                                        <div class="col-md-12 pl-3 pr-3">
                                             <div class="form-group">
-                                                <label>Registro do equipamento</label>
-                                                <input type="text" class="form-control"
-                                                    placeholder="Resgitro do equipamento">
+                                                <label>Setor</label>
+                                                <input type="text" name="setor" class="form-control"
+                                                    placeholder="Digite o setor do funcionario">
                                             </div>
                                         </div>
-                                        <div class="col-md-4 pr-1 my-1 pt-4">
-                                            <div class="form-group col-auto">
-                                                <label class="mr-sm-2 sr-only"
-                                                    for="inlineFormCustomSelect">Preferência</label>
-                                                <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                                                    <option selected>Setor</option>
-                                                    <option value="1">Pediatria</option>
-                                                    <option value="2">UTI</option>
-                                                    <option value="3">Emergência</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-2 pl-1 ">
+                                        <div class="col-md-12 pl-3 pr-3">
                                             <div class="form-group">
-                                                <label>Quantidade</label>
-                                                <input type="number" class="form-control">
+                                                <label>Senha</label>
+                                                <input type="text" name="senha" class="form-control"
+                                                    placeholder="Insira uma nova senha">
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-md-3 pr-1">
-                                            <div class="form-group">
-                                                <label>Data</label>
-                                                <input type="date" class="form-control">
-                                            </div>
-                                        </div>
-                                        <div class="col-md-3 pl-1">
-                                            <div class="form-group">
-                                                <label>Horário</label>
-                                                <input type="time" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="form-group">
-                                                <label>Observações</label>
-                                                <textarea rows="4" cols="80" class="form-control"
-                                                    placeholder="Digite algum problema durante a retirada de esquipamentos, ou alguma observação a ser feita."></textarea>
-                                            </div>
-                                        </div>
                                     </div>
-                                    <button type="submit" class="btn btn-info btn-fill pull-right">Salvar</button>
+                                    <button type="submit" value="enviar" name="enviar" class="btn btn-info btn-fill pull-right">Salvar</button>
                                     <div class="clearfix"></div>
                                 </form>
                             </div>

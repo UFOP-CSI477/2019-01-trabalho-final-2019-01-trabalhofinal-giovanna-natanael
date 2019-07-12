@@ -1,15 +1,31 @@
+<?php
+
+require_once 'assets/php/database.php';
+require_once 'assets/php/equipamento.php';
+    
+   
+$equipamento = new Equipamento();
+if(isset($_POST['enviar'])){
+    
+	$equipamento->setNome($_POST['nome']);
+	$equipamento->setRegistro($_POST['registro']);
+	$equipamento->setFornecedor($_POST['fornecedor']);
+	$equipamento->setPreco($_POST['preco']);
+
+	
+	if($equipamento->insert() == 1){
+		$result = "Equipamento inserido";
+	}else{
+		$error = "Erro ao inserir";
+	}
+	
+}
+
+?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
     <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
-        <title>Editar Usuário</title>
-        <link rel="shortcut icon" href="assets/pictures/medicine.png" />
-        <link rel="stylesheet" href="assets/css/bootstrap.min.css">
-        <link rel="stylesheet" href="assets/" type="text/css">
-
-
         <meta charset="utf-8" />
         <link rel="apple-touch-icon" sizes="76x76" href="assets/img/apple-icon.png">
         <link rel="icon" type="image/png" href="assets/img/favicon.ico">
@@ -35,42 +51,42 @@
                     </div>
                     <ul class="nav">
                         <li>
-                            <a class="nav-link" href="dashboard2.html">
+                            <a class="nav-link" href="dashboard2.php">
                                 <p>Dashboard</p>
                             </a>
                         </li>
                         <li>
-                            <a class="nav-link" href="registro-entrada.html">
+                            <a class="nav-link" href="registro-entrada.php">
                                 <p>Registro de entrada</p>
                             </a>
                         </li>
                         <li>
-                            <a class="nav-link" href="registro-saida.html">
+                            <a class="nav-link" href="registro-saida.php">
                                 <p>Registro de saída</p>
                             </a>
                         </li>
                         <li>
-                            <a class="nav-link" href="visualiza-estoque.html">
+                            <a class="nav-link" href="visualiza-estoque.php">
                                 <p>Visualizar Estoque</p>
                             </a>
                         </li>
-                        <li>
-                            <a class="nav-link" href="cadastra-equipamento.html">
+                        <li class="nav-link active">
+                            <a class="nav-link" href="cadastra-equipamento.php">
                                 <p>Cadastrar novo equipamento</p>
                             </a>
                         </li>
-                        <li class="nav-link active">
-                            <a class="nav-link" href="relatorio-estoque.html">
+                        <li>
+                            <a class="nav-link" href="relatorio-estoque.php">
                                 <p>Relatório de estoque</p>
                             </a>
                         </li>
                         <li>
-                            <a class="nav-link" href="edit-user.html">
+                            <a class="nav-link" href="edit-user.php">
                                 <p>Gerenciar usuários</p>
                             </a>
                         </li>
                         <li class="nav-item active active-pro">
-                            <a class="nav-link active text-center" href="upgrade.html">
+                            <a class="nav-link active text-center" href="upgrade.php">
                                 <i class="nc-icon"></i>
                                 <p>Sair</p>
                             </a>
@@ -79,85 +95,52 @@
                 </div>
             </div>
             <div class="main-panel">
-                <div class="w-100 p-3 pt-1">
-                <h1 class=" text-center display-4">Editar usuário</h1>
-            </div>
-            <div class="form-group input-group w-50 p-3">
-                <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-                <input name="consulta" id="txt_consulta" placeholder="Consulte" type="text" class="form-control">
-            </div>
-            <div class="tabela w-100 p-3 pt-5">
-                <table class="table table-striped ">
-                    <thead>
-                        <tr>
-                            <th scope="col">Id</th>
-                            <th scope="col">Nome</th>
-                            <th scope="col">Resgistro</th>
-                            <th scope="col">Departamento</th>
-                            <th scope="col">Editar</th>
-                            <th scope="col">Excluir</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <th scope="row">1</th>
-                            <td>Lorena Dos Santos</td>
-                            <td>123456</td>
-                            <td>Farmácia</td>
-                            <td><img src="assets/pictures/pencil.png"></td>
-                            <td><img src="assets/pictures/delete.png"></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">2</th>
-                            <td>Otto Silva Alves</td>
-                            <td>Escritório</td>
-                            <td>543210</td>
-                            <td><img src="assets/pictures/pencil.png"></td>
-                            <td><img src="assets/pictures/delete.png"></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Luisa Caetano Soares</td>
-                            <td>Limpeza</td>
-                            <td>789065</td>
-                            <td><img src="assets/pictures/pencil.png"></td>
-                            <td><img src="assets/pictures/delete.png"></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Luisa Caetano Soares</td>
-                            <td>Limpeza</td>
-                            <td>789065</td>
-                            <td><img src="assets/pictures/pencil.png"></td>
-                            <td><img src="assets/pictures/delete.png"></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Luisa Caetano Soares</td>
-                            <td>Limpeza</td>
-                            <td>789065</td>
-                            <td><img src="assets/pictures/pencil.png"></td>
-                            <td><img src="assets/pictures/delete.png"></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Luisa Caetano Soares</td>
-                            <td>Limpeza</td>
-                            <td>789065</td>
-                            <td><img src="assets/pictures/pencil.png"></td>
-                            <td><img src="assets/pictures/delete.png"></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">3</th>
-                            <td>Luisa Caetano Soares</td>
-                            <td>Limpeza</td>
-                            <td>789065</td>
-                            <td><img src="assets/pictures/pencil.png"></td>
-                            <td><img src="assets/pictures/delete.png"></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+                <div class="content">
+                    <div class="col-md-6">
+                        <div class="card ml-5 mt-5">
+                            <div class="card-header">
+                                <h4 class="card-title">Cadastro de equipamentos</h4>
+                            </div>
+                            <div class="card-body">
+                                <form method="POST" action="cadastra-equipamento.php">
+                                    <div class="row">
+                                        <div class="col-md-12 pr-3">
+                                            <div class="form-group">
+                                                <label>Nome</label>
+                                                <input type="text" name="nome" class="form-control"
+                                                    placeholder="Digite o nome do equipamento">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 pl-3 pr-3">
+                                            <div class="form-group">
+                                                <label>Registro</label>
+                                                <input type="text" name="registro" class="form-control"
+                                                    placeholder="Digite um registro para o equipamento">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 pl-3 pr-3">
+                                            <div class="form-group">
+                                                <label>Fornecedor</label>
+                                                <input type="text" name="fornecedor" class="form-control"
+                                                    placeholder="Digite o nome do fornecedor">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-12 pl-3 pr-3">
+                                            <div class="form-group">
+                                                <label>Preço unitário</label>
+                                                <input type="text" name="preco" class="form-control"
+                                                    placeholder="Insira o valor do produto">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <button type="submit" value="enviar" name="enviar" class="btn btn-info btn-fill pull-right">Salvar</button>
+                                    <div class="clearfix"></div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <footer class="footer">
                 <div class="container-fluid">
